@@ -1,6 +1,6 @@
-# clearspark - Dependency Mapping @datacenter
+# clearspark - Dependency Mapping
 
-This is alpha level version of dependency mapping tool. This python package installs the clearspark module/agent which runs on a host, gathers all the process running and sends the output to either Kafka, Neo4j or dumps as JSON, for creating the dependency graph. It provides a sample scala program that can be run on Apache Spark - GraphX to generate the graph from the Kafka/JSON input.
+This is alpha level version of dependency graph mapping tool for a datacenter scale (!?really) system. This python package installs the clearspark module/agent which runs on a host, gathers all the process running and sends the output to either Kafka, Neo4j or dumps as JSON, for creating the dependency graph. It provides a sample scala program that can be run on Apache Spark - GraphX to generate the graph from the Kafka/JSON input.
 
 To calculate dependencies between multiple host, it uses etcd as a arbitrator for vertex information. Each agent would communicate with it, to determine vertex ids. And once the local dependency graph is created on that host (for that host), it outputs the data to Kafka/JSON/Neo4j to create the Global Graph.
 
