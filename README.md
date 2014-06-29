@@ -1,4 +1,4 @@
-# clearspark - A Dependency Mapping for your Datacenter
+# clearspark - Dependency Mapping @datacenter
 
 This is alpha level version of dependency mapping tool. This python package installs the clearspark module/agent which runs on a host, gathers all the process running and sends the output to either Kafka, Neo4j or dumps as JSON, for creating the dependency graph. It provides a sample scala program that can be run on Apache Spark - GraphX to generate the graph from the Kafka/JSON input.
 
@@ -30,9 +30,9 @@ For the module itself
 # Usage
 
 ## High level
-Download/git clone it, ensure all requirements are present.
+Download/git clone it, ensure all requirements are present. Ensure etcd, neo4j or kafka is running.
 
-For a single host setup:
+For small testing, recommend to try it on neo4j first. So on each host run:
 
 ```
 cd clearspark
@@ -41,5 +41,6 @@ python main.py --etcdhost your-etcd-host --etcdport 4001 --outputneo4j --outputn
 
 ```
 
-Check out your neo4jdb http://your-db-host:7474/browser/
+Check out your neo4j db http://your-db-host:7474/browser/
+![Alt text](/share/neo4j-dependency.png?raw=true "dependency graph in neo4j")
 
