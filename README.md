@@ -37,7 +37,12 @@ For small testing, recommend to try it on neo4j first. So on each host run:
 ```
 cd clearspark
 
-python main.py --etcdhost your-etcd-host --etcdport 4001 --outputneo4j --outputneo4jurl http://your-db-host:7474/db/data -vv
+python main.py \
+    --etcdhost your-etcd-host \
+    --etcdport 4001 \
+    --outputneo4j \
+    --outputneo4jurl http://your-db-host:7474/db/data \
+    -vv
 
 ```
 
