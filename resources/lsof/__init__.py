@@ -504,6 +504,8 @@ class lsof():
             if m:
                 sname = m.group(1)
                 mname = getMountFromDevice(sname)
+                if not mname or not sname:
+                    return
                 self.debug("(prs)   fs: remote-fs mount: " +
                            "{} server-export: {}".format(mname, sname))
                 remote_fs_node = myNode("remote_fs", sname,
