@@ -158,6 +158,20 @@ class GraphElement():
             self._update()
             return self._properties
 
+    def propertySerialized(self):
+        p = self.property()
+        retval = {}
+        for k, v in p.iteritems():
+            if isinstance(v, dict):
+                retval[k] = "{}".format(v)
+            elif isinstance(v, list):
+                retval[k] = "_".join(v)
+            elif isinstance(v, basestring):
+                retval[k] = v
+            else:
+                pass
+        return retval
+
     def properties(self, d=None, v=None):
         return self.property(d=d, v=v)
 
@@ -447,6 +461,20 @@ class Graph():
         else:
             self._update()
             return self._properties
+
+    def propertySerialized(self):
+        p = self.property()
+        retval = {}
+        for k, v in p.iteritems():
+            if isinstance(v, dict):
+                retval[k] = "{}".format(v)
+            elif isinstance(v, list):
+                retval[k] = "_".join(v)
+            elif isinstance(v, basestring):
+                retval[k] = v
+            else:
+                pass
+        return retval
 
     def db(self, nodeType):
         if nodeType not in self._root:

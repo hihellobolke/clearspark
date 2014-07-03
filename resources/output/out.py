@@ -62,7 +62,7 @@ def _convert_node_json(nod_obj, l):
                 "node_type": v.typeStr(),
                 "discovered_on": v.discoveredOn(),
                 "name": v.property("name"),
-                "properties": v.property()}
+                "properties": v.propertySerialized()}
                 )
             )
     return retval
@@ -85,7 +85,7 @@ def _convert_rel_json(rel_obj, nod_obj, l):
                 "name": nod_obj[v.srcId()].property("name") +
                 "-[:{}]->".format(v.typeStr()) +
                 nod_obj[v.dstId()].property("name"),
-                "properties": v.property()
+                "properties": v.propertySerialized()
                 })
             )
     return retval
