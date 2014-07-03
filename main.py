@@ -45,15 +45,16 @@ parser.add_argument('--verbose', '-v', action='count',
                     default=0)
 
 group_etcd = parser.add_argument_group('etcd')
-group_etcd.add_argument('--etcdhost', type=str,
+group_etcd.add_argument('--etcdhost', metavar="HOST", type=str,
                         required=True)
-group_etcd.add_argument('--etcdport', type=int,
+group_etcd.add_argument('--etcdport', metavar="PORT", type=int,
                         default=4001)
 
 group_in = parser.add_mutually_exclusive_group(required=True)
 group_in.add_argument('--inputlocal', action='store_true',
                       help="scan the local system, to map dependencies")
-group_in.add_argument('--inputlog', default=None, type=str,
+group_in.add_argument('--inputlog', metavar="AGENT.log",
+                      default=None, type=str,
                       help="generate dependencies from the agent log file")
 #group_in.add_argument('--inputjson', default=None, type=str, nargs=2,
 #                      help="generate dependencies from the outputjson file")
@@ -61,11 +62,14 @@ group_in.add_argument('--inputlog', default=None, type=str,
 
 group_out = parser.add_mutually_exclusive_group(required=True)
 group_out.add_argument('--outputneo4j', type=str,
+                       metavar="URL",
                        help="store results in neo4j, specify neo4j REST url",
                        default=None)
-group_out.add_argument('--outputkafka', type=str, default=None,
+group_out.add_argument('--outputkafka', metavar="URL",
+                       type=str, default=None,
                        help='store results in kafka, specify kafka router url')
-group_out.add_argument('--outputjson', type=str, default=None, nargs=2,
+group_out.add_argument('--outputjson', metavar="FILE.json",
+                       type=str, default=None, nargs=2,
                        help='store results in json files, specify two files.' +
                        'files. First file for nodes, second for rels')
 
